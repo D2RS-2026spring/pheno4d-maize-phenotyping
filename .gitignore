@@ -5,8 +5,7 @@
 .DS_Store
 Thumbs.db
 
-# Quarto output
-docs/
+# Quarto temporary output
 _site/
 _freeze/
 
