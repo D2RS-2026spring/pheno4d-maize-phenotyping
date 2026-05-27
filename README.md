@@ -60,3 +60,8 @@ quarto render
 | 成员4 | Quarto 报告、README 与复现测试 |
 
 后续将根据实际贡献更新。
+
+## 8. 在线报告
+
+项目网页报告地址：https://d2rs-2026spring.github.io/pheno4d-maize-phenotyping/
+
