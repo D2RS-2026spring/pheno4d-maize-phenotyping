@@ -1,88 +1,74 @@
-# 基于 Pheno4D 点云数据的玉米时序表型复现分析
-
-## 1. 项目简介
-
-本项目为“数据驱动的可重复性研究”课程结课项目，复现论文：
-
+# 鍩轰簬 Pheno4D 鐐逛簯鏁版嵁鐨勭帀绫虫椂搴忚〃鍨嬪鐜板垎鏋?
+## 1. 椤圭洰绠€浠?
+鏈」鐩负鈥滄暟鎹┍鍔ㄧ殑鍙噸澶嶆€х爺绌垛€濊绋嬬粨璇鹃」鐩紝澶嶇幇璁烘枃锛?
 Schunck, D., Magistri, F., Rosu, R. A., et al. (2021). Pheno4D: A spatio-temporal dataset of maize and tomato plant point clouds for phenotyping and advanced plant analysis. PLOS ONE, 16(8), e0256340. DOI: 10.1371/journal.pone.0256340
 
-项目不完整复现论文中的深度学习模型，而是选取 Pheno4D 玉米点云数据中的 `Maize01`，完成点云读取、株高表型提取、时序可视化和结果解释。
+椤圭洰涓嶅畬鏁村鐜拌鏂囦腑鐨勬繁搴﹀涔犳ā鍨嬶紝鑰屾槸閫夊彇 Pheno4D 鐜夌背鐐逛簯鏁版嵁涓殑 `Maize01`锛屽畬鎴愮偣浜戣鍙栥€佹牚楂樿〃鍨嬫彁鍙栥€佹椂搴忓彲瑙嗗寲鍜岀粨鏋滆В閲娿€?
+## 2. 鍦ㄧ嚎鎶ュ憡
 
-## 2. 在线报告
-
-项目网页报告地址：
-
+椤圭洰缃戦〉鎶ュ憡鍦板潃锛?
 https://d2rs-2026spring.github.io/pheno4d-maize-phenotyping/
 
-## 3. 项目仓库与 Issue
+## 3. 椤圭洰浠撳簱涓?Issue
 
-项目仓库：
-
+椤圭洰浠撳簱锛?
 https://github.com/D2RS-2026spring/pheno4d-maize-phenotyping
 
-Issue 注册：
-
+Issue 娉ㄥ唽锛?
 https://github.com/D2RS-2026spring/projects/issues/145
 
-## 4. 数据来源
+## 4. 鏁版嵁鏉ユ簮
 
-数据集名称：Pheno4D
+鏁版嵁闆嗗悕绉帮細Pheno4D
 
-官方数据页面：
-
+瀹樻柟鏁版嵁椤甸潰锛?
 https://www.ipb.uni-bonn.de/data/pheno4d/
 
-数据下载地址：
-
+鏁版嵁涓嬭浇鍦板潃锛?
 https://www.ipb.uni-bonn.de/html/projects/Pheno4D/Pheno4D.zip
 
-由于原始数据文件较大，本仓库不上传 `Pheno4D.zip` 和解压后的原始点云文件。复现者需要自行下载原始数据，并将其放置在 `data/raw/` 目录下。
-
-## 5. 项目结构
+鐢变簬鍘熷鏁版嵁鏂囦欢杈冨ぇ锛屾湰浠撳簱涓嶄笂浼?`Pheno4D.zip` 鍜岃В鍘嬪悗鐨勫師濮嬬偣浜戞枃浠躲€傚鐜拌€呴渶瑕佽嚜琛屼笅杞藉師濮嬫暟鎹紝骞跺皢鍏舵斁缃湪 `data/raw/` 鐩綍涓嬨€?
+## 5. 椤圭洰缁撴瀯
 
 ```text
-data/raw/          原始数据，不上传到 GitHub
-data/processed/    预处理后的结果表
-scripts/           数据读取、清洗和分析脚本
-results/figures/   输出图片
-results/tables/    输出表格
-report/            其他报告材料
-docs/              Quarto 渲染后的网页
-index.qmd          Quarto 主报告
-_quarto.yml        Quarto 项目配置
-README.md          项目说明与复现步骤
-```
+data/raw/          鍘熷鏁版嵁锛屼笉涓婁紶鍒?GitHub
+data/processed/    棰勫鐞嗗悗鐨勭粨鏋滆〃
+scripts/           鏁版嵁璇诲彇銆佹竻娲楀拰鍒嗘瀽鑴氭湰
+results/figures/   杈撳嚭鍥剧墖
+results/tables/    杈撳嚭琛ㄦ牸
+report/            鍏朵粬鎶ュ憡鏉愭枡
+docs/              Quarto 娓叉煋鍚庣殑缃戦〉
+index.qmd          Quarto 涓绘姤鍛?_quarto.yml        Quarto 椤圭洰閰嶇疆
+README.md          椤圭洰璇存槑涓庡鐜版楠?```
 
-## 6. 复现环境
+## 6. 澶嶇幇鐜
 
-本项目主要使用：
+鏈」鐩富瑕佷娇鐢細
 
 - R 4.6.0
 - Quarto 1.9.38
-- R 包：knitr、rmarkdown
+- R 鍖咃細knitr銆乺markdown
 
-其中，`scripts/01_extract_maize01_height.R` 只使用 base R，可以减少复现环境依赖。
+鍏朵腑锛宍scripts/01_extract_maize01_height.R` 鍙娇鐢?base R锛屽彲浠ュ噺灏戝鐜扮幆澧冧緷璧栥€?
+## 7. 瀹屾暣澶嶇幇姝ラ
 
-## 7. 完整复现步骤
-
-### 7.1 克隆仓库
+### 7.1 鍏嬮殕浠撳簱
 
 ```bash
 git clone https://github.com/D2RS-2026spring/pheno4d-maize-phenotyping.git
 cd pheno4d-maize-phenotyping
 ```
 
-### 7.2 下载原始数据
+### 7.2 涓嬭浇鍘熷鏁版嵁
 
-从 Pheno4D 官方页面下载 `Pheno4D.zip`，并放入：
-
+浠?Pheno4D 瀹樻柟椤甸潰涓嬭浇 `Pheno4D.zip`锛屽苟鏀惧叆锛?
 ```text
 data/raw/Pheno4D.zip
 ```
 
-### 7.3 解压 Maize01 数据
+### 7.3 瑙ｅ帇 Maize01 鏁版嵁
 
-本项目只使用 `Pheno4D/Maize01/` 文件夹。可以手动解压，也可以在 PowerShell 中运行以下命令：
+鏈」鐩彧浣跨敤 `Pheno4D/Maize01/` 鏂囦欢澶广€傚彲浠ユ墜鍔ㄨВ鍘嬶紝涔熷彲浠ュ湪 PowerShell 涓繍琛屼互涓嬪懡浠わ細
 
 ```powershell
 Add-Type -AssemblyName System.IO.Compression.FileSystem
@@ -110,8 +96,7 @@ foreach ($entry in $entries) {
 $zip.Dispose()
 ```
 
-解压后应得到：
-
+瑙ｅ帇鍚庡簲寰楀埌锛?
 ```text
 data/raw/Pheno4D/Maize01/M01_0313_a.txt
 data/raw/Pheno4D/Maize01/M01_0314.txt
@@ -119,62 +104,54 @@ data/raw/Pheno4D/Maize01/M01_0314.txt
 data/raw/Pheno4D/Maize01/M01_0325_a.txt
 ```
 
-### 7.4 运行数据分析脚本
+### 7.4 杩愯鏁版嵁鍒嗘瀽鑴氭湰
 
 ```bash
 Rscript scripts/01_extract_maize01_height.R
 ```
 
-运行后会生成：
-
+杩愯鍚庝細鐢熸垚锛?
 ```text
 data/processed/maize01_height.csv
 results/figures/maize01_height_trend.png
 ```
 
-### 7.5 渲染 Quarto 报告
+### 7.5 娓叉煋 Quarto 鎶ュ憡
 
-如果 R 中尚未安装 `knitr` 和 `rmarkdown`，先运行：
-
+濡傛灉 R 涓皻鏈畨瑁?`knitr` 鍜?`rmarkdown`锛屽厛杩愯锛?
 ```bash
 Rscript -e "install.packages(c('knitr', 'rmarkdown'), repos='https://cloud.r-project.org')"
 ```
 
-然后渲染报告：
-
+鐒跺悗娓叉煋鎶ュ憡锛?
 ```bash
 quarto render
 ```
 
-渲染完成后，可以打开：
-
+娓叉煋瀹屾垚鍚庯紝鍙互鎵撳紑锛?
 ```text
 docs/index.html
 ```
 
-也可以访问在线报告：
+涔熷彲浠ヨ闂湪绾挎姤鍛婏細
 
 https://d2rs-2026spring.github.io/pheno4d-maize-phenotyping/
 
-## 8. 当前复现结果
+## 8. 褰撳墠澶嶇幇缁撴灉
 
-本项目基于 `Maize01` 的 12 个时相点云文件，提取第三列 `z` 坐标，并使用：
-
+鏈」鐩熀浜?`Maize01` 鐨?12 涓椂鐩哥偣浜戞枃浠讹紝鎻愬彇绗笁鍒?`z` 鍧愭爣锛屽苟浣跨敤锛?
 ```text
 height = max(z) - min(z)
 ```
 
-计算玉米株高近似值。
-
-结果表明，`Maize01` 的点云高度总体随扫描日期增加而上升，说明三维点云能够反映玉米单株在连续观测期内的生长变化。
-
-## 9. 小组成员与贡献
-
-| 成员 | 主要贡献 |
+璁＄畻鐜夌背鏍珮杩戜技鍊笺€?
+缁撴灉琛ㄦ槑锛宍Maize01` 鐨勭偣浜戦珮搴︽€讳綋闅忔壂鎻忔棩鏈熷鍔犺€屼笂鍗囷紝璇存槑涓夌淮鐐逛簯鑳藉鍙嶆槧鐜夌背鍗曟牚鍦ㄨ繛缁娴嬫湡鍐呯殑鐢熼暱鍙樺寲銆?
+## 9. 灏忕粍鎴愬憳涓庤础鐚?
+| 鎴愬憳 | 涓昏璐＄尞 |
 |---|---|
-| 成员1 | 项目仓库创建、Issue 注册、项目结构搭建 |
-| 成员2 | 数据下载与整理 |
-| 成员3 | 点云预处理与株高计算 |
-| 成员4 | Quarto 报告、README 与复现测试 |
+| 鎴愬憳1 | 椤圭洰浠撳簱鍒涘缓銆両ssue 娉ㄥ唽銆侀」鐩粨鏋勬惌寤?|
+| 鎴愬憳2 | 鏁版嵁涓嬭浇涓庢暣鐞?|
+| 鎴愬憳3 | 鐐逛簯棰勫鐞嗕笌鏍珮璁＄畻 |
+| 鎴愬憳4 | Quarto 鎶ュ憡銆丷EADME 涓庡鐜版祴璇?|
 
-后续将根据实际小组成员和 GitHub 提交记录更新。
+鍚庣画灏嗘牴鎹疄闄呭皬缁勬垚鍛樺拰 GitHub 鎻愪氦璁板綍鏇存柊銆
