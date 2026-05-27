@@ -1,4 +1,4 @@
-﻿.Rproj.user
+.Rproj.user
 .Rhistory
 .RData
 .Ruserdata
@@ -27,3 +27,6 @@ data/raw/Pheno4D/
 data/raw/pheno4d/
 data/raw/maize/
 data/raw/tomato/
+
+/.quarto/
+**/*.quarto_ipynb
