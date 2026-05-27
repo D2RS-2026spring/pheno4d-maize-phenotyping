@@ -20,3 +20,10 @@ _freeze/
 
 # Quarto cache
 .quarto/
+
+# raw Pheno4D data, do not commit
+data/raw/Pheno4D.zip
+data/raw/Pheno4D/
+data/raw/pheno4d/
+data/raw/maize/
+data/raw/tomato/
