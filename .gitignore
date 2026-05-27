@@ -17,3 +17,6 @@ _freeze/
 *.zip
 *.tar.gz
 *.rar
+
+# Quarto cache
+.quarto/
