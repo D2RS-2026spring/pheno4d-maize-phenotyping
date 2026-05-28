@@ -182,4 +182,4 @@ height = max(z) - min(z)
 
 | 成员 | GitHub 用户名 | 主要贡献 |
 |---|---|---|
-| 陈曦（2025303120180） | @CXWYWG | 创建仓库与 Issue，搭建项目目录，下载并检查 Pheno4D 数据，提取 Maize01 点云株高，绘制趋势图，撰写 Quarto 报告和 README 复现步骤 |
+| 陈曦（2025303120180） | @CXWYWG | 创建仓库与 Issue，搭建项目目录，下载并检查 Pheno4D 数据，提取 Maize01 点云株高，绘制趋势图，撰写 Quarto 报告和 README 复现步骤。 |
